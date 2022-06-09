@@ -2,6 +2,7 @@
 //THE TEST SERVER IS RUNNING ON LOCALHOST:3000//
 ////////////////////////////////////////////////
 
+
 // PROBLEM 1
 /*
     In the index.html file in this folder there is a button with an id of 'say-hello-button'!
@@ -77,7 +78,14 @@ sayHelloButton.addEventListener("click", sayHello);
 */ 
 
 const ohMy = () => {
-    // YOUR CODE HERE
+    axios.get("http://localhost:3000/animals")
+    .then(function(res) {
+        for (let i = 0; i < res.data.length; i++) {
+            let newP = document.createElement("p")
+            newP.textContent = res.data[i]
+            document.querySelector("body").appendChild(newP)
+        }
+    })
 }
 
 document.getElementById('animals-button').addEventListener('click', ohMy)
@@ -97,8 +105,15 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
 */
 
 const repeatMyParam = () => {
-    //YOUR CODE HERE
+    axios.get(`http://localhost:3000/repeat/Dallas`)
+    .then((res) => {
+        console.log(res.data);
+        document.querySelector("#repeat-text").textContent = res.data
+        document.querySelector("#repeat-text").style.display = "block"
+    })
 }
+document.querySelector("#repeat-button").addEventListener("click", repeatMyParam)
+
 
 // PROBLEM 7
 /*
@@ -121,7 +136,14 @@ const repeatMyParam = () => {
 */
 
 // CODE HERE
+const queryRequest = () => {
+    axios.get("http://localhost:3000/query-test/?test=yo")
+    .then((res) => {
+        console.log(res.data);
+    })
+}
 
+document.querySelector("#query-button").addEventListener("click", queryRequest)
 
 
 ////////////////
