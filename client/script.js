@@ -196,3 +196,20 @@ document.querySelector("#query-button").addEventListener("click", queryRequest)
 */
 
 // CODE HERE 
+const createFood = (event) => {
+    event.preventDefault();
+    const foodInput = document.getElementById("food-input").value
+    const body = {
+        newFood: foodInput
+    }
+    axios.post("http://localhost:3000/food", body)
+    .then((res) => {
+        console.log(res.data);
+        let newFoodItem = document.createElement("p");
+        newFoodItem.textContent = res.data
+        document.querySelector("body").appendChild(newFoodItem);
+        newFoodItem.style.display = "block"
+    })
+}
+
+document.querySelector("#food-list").addEventListener("submit", createFood)
