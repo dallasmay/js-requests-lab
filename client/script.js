@@ -10,7 +10,7 @@
 */
 
 // CODE HERE
-
+const sayHelloButton = document.querySelector("#say-hello-button");
 
 // PROBLEM 2
 /*
@@ -20,7 +20,12 @@
 */
 
 // CODE HERE
+function changeButtonColor() {
+    sayHelloButton.style.backgroundColor = "black";
+    sayHelloButton.style.color = "white";
+};
 
+sayHelloButton.addEventListener("mouseover", changeButtonColor);
 
 // PROBLEM 3
 /*
@@ -32,7 +37,12 @@
 */
 
 // CODE HERE
+const revertButtonColor = () => {
+    sayHelloButton.style.backgroundColor = "";
+    sayHelloButton.style.color = "";
+}
 
+sayHelloButton.addEventListener("mouseout", revertButtonColor)
 
 // PROBLEM 4
 /*
@@ -53,7 +63,7 @@ const sayHello = () => {
 // DO NOT EDIT FUNCTION
 
 // CODE HERE
-
+sayHelloButton.addEventListener("click", sayHello);
 
 // PROBLEM 5 
 /*
