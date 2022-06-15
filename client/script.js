@@ -208,7 +208,7 @@ const createFood = (event) => {
         let newFoodItem = document.createElement("p");
         newFoodItem.textContent = res.data
         document.querySelector("body").appendChild(newFoodItem);
-        newFoodItem.style.display = "block"
+        // newFoodItem.style.display = "block"
     })
 }
 
